@@ -1,3 +1,4 @@
+
 """Unit 1: probability, Bayes' theorem and a hypothesis test.
 
 (a) A malaria rapid test: what is P(malaria | positive)?
@@ -21,9 +22,14 @@ print(f"score at the 90th percentile = {scores.ppf(0.90):.1f}")
 
 # (c) a t-test on two groups of 40 students (simulated, seed fixed)
 rng = np.random.default_rng(465)
-old = rng.normal(55, 12, 40)
-new = rng.normal(61, 12, 40)
+old = rng.normal(55, 12, 200)
+new = rng.normal(61, 12, 200)
 t, p = stats.ttest_ind(new, old)
 print(f"means: old {old.mean():.1f}, new {new.mean():.1f}")
 print(f"t = {t:.2f}, p-value = {p:.4f}",
       "-> reject H0 at 5%" if p < 0.05 else "-> do not reject H0")
+
+# At 200 Students, the t-test now reject H0 at 5%
+# At 150 Students, the t-test now reject H0 at 5%
+# At 100 Students, the t-test now reject H0 at 5%
+# At 50 Students, the t-test do not reject H0

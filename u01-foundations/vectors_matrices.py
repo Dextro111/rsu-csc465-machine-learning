@@ -9,8 +9,10 @@ import numpy as np
 X = np.array([[1.0, 1.2, 3],     # first column of 1s gives the intercept
               [1.0, 1.5, 3],
               [1.0, 2.0, 4],
-              [1.0, 2.6, 5]])
-y = np.array([18.0, 22.0, 30.0, 39.0])
+              [1.0, 2.6, 5],
+              [1.0, 3.0, 6]])
+
+y = np.array([18.0, 22.0, 30.0, 39.0, 45.0])
 
 print("shape of X:", X.shape)
 print("dot product of rows 0 and 1:", X[0] @ X[1])
@@ -21,3 +23,9 @@ w = np.linalg.solve(X.T @ X, X.T @ y)
 print("weights w0, w1, w2:", np.round(w, 3))
 print("predicted prices:", np.round(X @ w, 2))
 print("norm of the error vector:", round(np.linalg.norm(X @ w - y), 3))
+
+new_house = np.array([1.0, 8.2, 10])
+
+prediction = new_house @ w
+
+print("Predicted price Of new House from Model:", prediction)

@@ -29,6 +29,35 @@ num = [(g(v + h * e) - g(v)) / h for e in np.eye(2)]
 print("gradient of g at (4, 1): exact", grad_g(v),
       "numerical", np.round(num, 3))
 
+print("\n Learing rate 0.2")
 for step in range(1, 6):        # gradient descent, learning rate 0.2
     v = v - 0.2 * grad_g(v)
     print(f"step {step}: v = {np.round(v, 3)}  g(v) = {g(v):.4f}")
+
+
+print("\n Learning rate 0.05")
+v = np.array([4.0, 1.0])
+for step in range(1, 6):        # gradient descent, learning rate 0.2
+    v = v - 0.05 * grad_g(v)
+    print(f"step {step}: v = {np.round(v, 3)}  g(v) = {g(v):.4f}")
+    
+    
+print("\n Learning rate 0.4")
+v = np.array([4.0, 1.0])
+for step in range(1, 6):        # gradient descent, learning rate 0.2
+    v = v - 0.4 * grad_g(v)
+    print(f"step {step}: v = {np.round(v, 3)}  g(v) = {g(v):.4f}")
+    
+
+print("\n Learning rate 0.6")
+v = np.array([4.0, 1.0])
+for step in range(1, 6):        # gradient descent, learning rate 0.2
+    v = v - 0.6 * grad_g(v)
+    print(f"step {step}: v = {np.round(v, 3)}  g(v) = {g(v):.4f}")
+    
+    
+# The learning rate of 0.4 converges fastest becuase after step 5, its gradient
+# is close to 0 (0.1088)
+
+# The learning rate 0.6 diverges on the Y axis, and just after step 2, the gradient 
+# increases to 69.1632
